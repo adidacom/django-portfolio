@@ -1,0 +1,84 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<main role="main">
+    <div class="container">
+        <h1 class="blog-title pt-5">Are you "fake news"?</h1>
+        <img class="img-responsive" src="{% static 'blog/images/fake-news.jpg' %}" width="100%">
+        <p>Nowadays it's hard to tell what's real news and what's fake news. Don't be fooled!</p>
+        <h2 class="pt-4">Fortunately, we're here to clear the air!</h2>
+        <p>We are the REAL FAKE NEWS. We take probably cause and turn it into probable cause. 'Cause it probably happened.  Don't become a laughing stock in front of your friends
+         and stay informed with us.</p>
+        <h3>Seeking talented reporters.</h3>
+        <p>As you may be aware, we are in a shortage of real fake news. The good news is that this gives opportunities to those who
+        take fake reporting seriously. Don't let something that hasn't happened stop you from telling it as if it did happened. Read our guidelines.</p>
+        <h5>Guidelines</h5>
+        <ul>
+            <li>Must be fictional fact.</li>
+            <li>Must be convincing.</li>
+        </ul>
+        <p>If this sounds like you, then register <a href="{% url 'register' %}">here</a> or <a href="{% url 'login' %}">login</a> to get started. However, if you are looking for a talented Software Developer, contact <a href="mailto:wtran4hire@gmail.com">wtran4hire@gmail.com</a>.
+        <p><a tabindex="0" type="link" class="btn btn-link text-danger p-0" data-trigger="focus" data-toggle="popover" title="Built with Python/Django" data-content="If you would like a walk through of how the backend of this site was built, I would be happy to do so. I have created RESTful APIs which could be tested.">Attn: Recruiters and potential employers</a></p>
+        <p>Otherwise, feel free to explore the site. Must create an account or logged in to leave comments.</p>
+        <h1 class="blog-title pt-4">Recent Posts</h1>
+
+        <div class="col-sm-6 row d-inline-block mb-2">
+            <form class="input-group" method="GET" action="">
+                <input class="form-control" type="text" name="q" value="{{request.GET.q}}" placeholder="Search for..."/>
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+        {% if request.user.is_authenticated %}<a class="btn btn-success mb-1" href="{% url 'blogs:create' %}" role="button"><i class="fas fa-plus"></i> Create</a>{% endif %}
+        <table class="table table-hover mt-4">
+            {% for blog in blogs %}
+            <tr class="caption blog-detail-item">
+                <th>
+                    {% if blog.draft %}<span class="d-block" style="color:red;">Draft</span>{% endif %} {% if blog.pub_date > today %}<span class="d-block" style="color:green;">Future Post</span>{% endif %}
+                    <h4 class="d-inline-block pt-2"><a class="blog-title-main" href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h4>
+                    <small class="blog-date-main text-muted px-2">{{ blog.created_at|timesince }} ago</small>
+                    {% if blog.user.get_full_name %}
+                    <p class="blog-author">Written by: {{blog.user.get_full_name}}</p>
+                    {% else %}
+                    <p class="blog-author">Written by: {{blog.user}}</p>
+                    {% endif %}
+                    <p class="blog-summary">{{ blog.get_html|truncatechars_html:200 }}</p>
+                    <p class="blog-summary pb-2">
+                        <a href="{{ blog.get_absolute_url }}" role="link">View</a>{% if blog.user.is_staff and blog.user == request.user %} |
+                        <a href="{{ blog.get_absolute_url }}/edit" role="link">Edit</a> |
+                        <a href="{{ blog.get_absolute_url }}/delete" role="link">Delete</a>{% endif %}
+                    </p>
+                </th>
+            </tr>
+
+            {% endfor %}
+        </table>
+        <hr>
+
+        <div class="pagination">
+        <span class="step-links">
+            {% if blogs.has_previous %}
+                <a href="?{{page_variable}}=1{% if request.GET.q %}&q={{request.GET.q}}{% endif %}">&laquo; first</a>
+                <a href="?{{page_variable}}={{ blogs.previous_page_number }}{% if request.GET.q %}&q={{request.GET.q}}{% endif %}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ blogs.number }} of {{ blogs.paginator.num_pages }}.
+            </span>
+
+            {% if blogs.has_next %}
+                <a href="?{{page_variable}}={{ blogs.next_page_number }}{% if request.GET.q %}&q={{request.GET.q}}{% endif %}">next</a>
+                <a href="?{{page_variable}}={{ blogs.paginator.num_pages }}{% if request.GET.q %}&q={{request.GET.q}}{% endif %}">last &raquo;</a>
+            {% endif %}
+        </span>
+        </div>
+        <hr>
+    </div>
+
+
+</main>
+
+
+{% endblock content %}

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>William Tran - Software Developer | Finance Professional | Merging Software Development with Data
+        Science</title>
+
+    {% block css %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'work/css/style.css' %}" media="screen" title="no title"
+          charset="utf-8">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    <!--<link href='https://cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css' rel='stylesheet'>-->
+
+    {% endblock %}
+
+</head>
+<body>
+
+<header>
+
+
+    <div class="parallax-main m-0">
+        <div class="parallax-top text-center" style="display: none;">
+            {% include 'snippets/nav.html' %}
+
+        </div>
+        <div class="video">
+            <video class="parallax-vid text-center" muted="muted" autoplay="autoplay" width="100%">
+                <source src="{% static 'work/video/Words.mp4' %}" type="video/mp4">
+            </video>
+
+            <nav class="navbar navbar-trans navbar-expand-lg navbar-dark navbar-inverse">
+                <a class="navbar-brand" href="/">William Tran</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tech">Technologies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog">#RealFakeNews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mailto:wtran4hire@gmail.com">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#connect">Connect</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="pt-5 px-3 flex-container">
+                <div id="joystick" class="d-inline-block profile">
+                    <div id="mover" data-toggle="popover" data-content="Hello, welcome to my site.">
+                        <img class="pic img-responsive" src="{% static 'work/images/profile.jpg' %}" height="200">
+                    </div>
+                </div>
+                <div class="text-center mb-5 py-2">
+                    <h2 class="header-slideLeft">William Tran</h2>
+                    <p class="lead" data-aos="fade-left" data-aos-duration="3000">DEDICATED, FOCUSED, and DRIVEN</p>
+                    <p class="header-summary" data-aos="fade-left" data-aos-duration="2000">
+                        Here to solve problems and turn ideas into reality. Let's get ready to Django!
+                    </p>
+                    <p class="pb-5" data-aos="flip-up">
+                        <a href="mailto:wtran4hire@gmail.com" class="btn btn-danger my-1">EMAIL ME</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    <div class="scroll-top-wrapper">
+        <span class="scroll-top-inner">
+            <i class="fa fa-2x fa-chevron-up"></i>
+        </span>
+    </div>
+    <main role="main">
+        <section id="about">
+            <div class="container py-5">
+                <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    <h1>//Background</h1>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3 py-2 text-center" data-aos="fade-up">
+                        <span style="color:goldenrod;"><i class="fas fa-user fa-lg fa-5x py-4"></i></span>
+                        <h5>About Me</h5>
+                        <p class="text-justify">I am thankful for the opportunities and experiences that made me who I am today.
+                            Although hard work and experience may be important, I believe success is dependent on the willingness to
+                            learn and not settle. I am grateful and humble to accept that I may not know everything
+                            but have the persistence to figure it out.
+                        </p>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 py-2 text-center" data-aos="fade-up" data-aos-duration="1000">
+                        <span style="color: darkgreen;"><i class="fas fa-dollar-sign fa-lg fa-5x py-4"></i></span>
+                        <h5>Finance and Accounting</h5>
+                        <p class="text-justify">I have 10+ years combined of Financial Analysis and Accounting experience. My experiences
+                            has helped me incorporate my analytical skills, attention to detail and collaboration with
+                            others to complement my developer skills.
+                        </p>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 py-2 text-center" data-aos="fade-up" data-aos-duration="2000">
+                        <span style="color:blue;"><i class="fas fa-code fa-lg fa-5x py-4"></i></span>
+                        <h5>Software Development</h5>
+                        <p class="text-justify">I'm focused on Python/Django programming but have built projects in Java/Spring Boot and MEAN stack as well.
+                            I enjoy the many logical and creative approaches to solving problems in building apps. I follow Object Oriented Programming
+                            methods, and handling logic through MVT and MVC.
+                        </p>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 py-2 text-center" data-aos="fade-up" data-aos-duration="3000">
+                        <span style="color: saddlebrown;"><i class="fas fa-suitcase fa-lg fa-5x py-4"></i></span>
+                        <h5>Professional Goals</h5>
+                        <p class="text-justify">I hope to make a positive impact in peoples' lives through software development.
+                            My goal is to build purposeful and interesting apps that provide value. I seek to incorporate Data Science
+                            in the near future to create apps for data analytics and improve processes. I continue to challenge myself and
+                            dedicate to improving my craft.
+                        </p>
+                    </div>
+                    <div class="col-lg-12 text-center py-5">
+                        <a href="https://partners.uber.com/i/ppyekzxug"><img class="img-fluid rounded" src="{% static 'blog/images/uber-invite.jpg' %}" width="800"></a>
+                    </div>
+                    <div class="col-lg-12 text-center pb-2" data-aos="fade-up" data-aos-duration="2000">
+                        <i class="far fa-eye fa-lg fa-5x pb-4"></i>
+                        <h2>Vision</h2>
+                        <p><i>To bring value through functionality, innovation and design.</i></p>
+                        <p>I believe what helps grow a company is their capacity to keep learning and humbleness to accept they may
+                            not be at the top of the industry. If your company is on top, know that your competitors are
+                            working twice as hard to surpass you. In any case, you are lucky that your company is a family
+                            of entrepreneurs. At any given moment, an employee can suddenly strike up the brilliance to solve
+                            the most complicated problems.</p>
+                        <p><big>This wouldn't have been made possible without one thing:</big></p>
+                        <h4><b><i>Trust</i>.</b></h4>
+                        <p><i>Trust cultivates ideas and grow companies. Trust those who share the same values. Trust in me.</i></p>
+                    </div>
+                    <div class="col-12">
+                        <div class="text-center">
+                            <a class="btn btn-dark mx-1" href="{% static 'work/images/resume2018v2.pdf' %}" data-aos="fade-up-right" data-aos-duration="2000">Download Resume</a>
+                            <a class="btn btn-outline-dark mx-1" href="http://github.com/wtran29" data-aos="fade-up-left" data-aos-duration="2000">Visit My GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-5 mt-5 bg-light" id="projects">
+            <!--<div>-->
+            <div class="container">
+                <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    <h1>//Projects</h1>
+                </div>
+                <div class="row pt-3">
+                    {% for project in projects %}
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="{{ project.image.url }}" alt="Card image cap" height="200">
+                            <div class="card-body">
+                                <h3 class="card-text">{{ project.title }}</h3>
+                                <p class="card-text">{{ project.summary }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal"
+                                                data-target="#{{ project.id }}">View
+                                        </button>
+                                        {% if project.github %}
+                                        <button type="button" class="btn btn-sm btn-outline-dark"
+                                                onclick="location.href='{{ project.github }}'">GitHub
+                                        </button>
+                                        {% endif %}
+                                        {% if project.deploy %}
+                                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                                onclick="location.href='{{ project.deploy }}'">Live Demo
+                                        </button>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="{{ project.id }}" tabindex="-1" role="dialog"
+                         aria-labelledby="projectModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="projectModalLabel">// Project Overview</h4>
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {% if project.video %}
+                                    <iframe width="100%" height="315" src="{{ project.video }}" frameborder="0"
+                                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    {% else %}
+                                    <img src="{% static 'work/images/novid.jpg' %}" width="100%">
+                                    {% endif %}
+                                    <h5>// Responsibilities</h5>
+                                    {% for item in project.bullets %}
+                                    <li class="card-text">{{ item.strip }}.</li>
+                                    {% endfor %}
+
+
+                                    <!--<h5>// Technologies</h5>-->
+                                    <!--<div class="row">-->
+                                    <!--<div class="mx-2">-->
+                                    <!--{% for tech in project.tech %}-->
+
+                                    <!--<span class="badge bg-dark ml-1 mb-1"><p-->
+                                    <!--class="tech-tag p-1">{{tech}}</p></span>-->
+
+                                    <!--{% endfor %}-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+
+                                </div>
+                                <div class="modal-footer">
+
+                                    <div class="btn-group">
+                                        {% if project.github %}
+                                        <button type="button" class="btn btn-dark"
+                                                onclick="location.href='{{ project.github }}'">GitHub
+                                        </button>
+                                        {% endif %}
+                                        {% if project.deploy %}
+                                        <button type="button" class="btn btn-outline-danger"
+                                                onclick="location.href='{{ project.deploy }}'">Live Demo
+                                        </button>
+                                        {% endif %}
+                                    </div>
+                                    <div class="btn-group float-right">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                            Close
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!--</div>-->
+        </section>
+        <section id="tech">
+            <div class="container py-5">
+                <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    <h1>//Technologies</h1>
+                </div>
+                <div class="row pt-3">
+                    <div class="tech-cat py-2 text-center">
+                        <h4 class="btn btn-dark" data-aos="flip-up">LANGUAGES</h4>
+                        <div class="tech-box row py-2 px-2 m-2" data-aos="zoom-in">
+                            <div class="tech-item"><i class="devicon-python-plain colored fa-3x px-3"></i><p>Python</p></div>
+                            <div class="tech-item"><i class="devicon-java-plain colored fa-3x px-3"></i><p>Java</p></div>
+                            <div class="tech-item"><i class="devicon-javascript-plain colored fa-3x px-3"></i><p>JavaScript</p></div>
+                            <div class="tech-item"><i class="devicon-typescript-plain colored fa-3x px-3"></i><p>TypeScript</p></div>
+                            <div class="tech-item pl-3"><i class="fas fa-database fa-3x pb-1 px-2"></i><p>SQL</p></div>
+                        </div>
+                    </div>
+                    <div class="tech-cat py-2 text-center">
+                        <h4 class="btn btn-dark" data-aos="flip-up">FRAMEWORKS</h4>
+                        <div class="tech-box row py-2 px-2 m-2" data-aos="zoom-in">
+                            <div class="tech-item pl-2"><i class="devicon-django-plain-wordmark colored fa-3x px-3"></i><p>Django</p></div>
+                            <div class="tech-item"><i class="fab fa-angular fa-3x pb-1 px-3" style="color: #CE293A;"></i><p>Angular</p></div>
+                            <div class="tech-item"><i class="devicon-express-original colored fa-3x px-3"></i><p>Express.js</p></div>
+                            <div class="tech-item pl-2"><i class="fab fa-node fa-3x pb-1 px-2"></i><p>Node.js</p></div>
+                            <div class="tech-item pl-3"><img src="{% static 'work/images/spring.png' %}" style="width: 3em;"><p class="mt-1">Spring Boot</p></div>
+                        </div>
+                    </div>
+                    <div class="tech-cat py-2 text-center">
+                        <h4 class="btn btn-dark" data-aos="flip-up">DESIGN</h4>
+                        <div class="tech-box row py-2 px-2 m-2" data-aos="zoom-in">
+                            <div class="tech-item"><i class="fab fa-html5 fa-4x px-3" style="color: #E35826;"></i><p>HTML</p></div>
+                            <div class="tech-item"><i class="fab fa-css3-alt fa-4x px-3" style="color: #46A3D8;"></i><p>CSS</p></div>
+                            <div class="tech-item pt-2 mt-1"><i class="devicon-jquery-plain colored fa-3x px-3"></i><p>jQuery</p></div>
+                            <div class="tech-item"><i class="devicon-bootstrap-plain colored fa-3x px-3"></i><p>Bootstrap</p></div>
+                        </div>
+                    </div>
+                    <div class="tech-cat py-2 text-center">
+                        <h4 class="btn btn-dark" data-aos="flip-up">DATABASES</h4>
+                        <div class="tech-box row py-2 px-2 m-2" data-aos="zoom-in">
+                            <div class="tech-item"><i class="devicon-mongodb-plain colored fa-3x px-3"></i><p>MongoDB</p></div>
+                            <div class="tech-item"><i class="devicon-mysql-plain colored fa-3x px-3"></i><p>MySQL</p></div>
+                            <div class="tech-item"><i class="devicon-postgresql-plain colored fa-3x px-3"></i><p>PostgesSQL</p></div>
+                            <div class="tech-item"><i class="fas fa-feather-alt fa-3x pb-1 px-3"></i><p>SQLite</p></div>
+                        </div>
+                    </div>
+                    <div class="tech-cat py-2 text-center">
+                        <h4 class="btn btn-dark" data-aos="flip-up">ANALYTICS</h4>
+                        <div class="tech-box row py-2 px-2 m-2" data-aos="zoom-in">
+                            <div class="tech-item"><img class="mx-3" src="{% static 'work/images/jupyter.png' %}" style="width: 3em;"><p>Jupyter</p></div>
+                            <div class="tech-item"><img class="py-1 mb-1 mx-3" src="{% static 'work/images/pandas.png' %}" style="width: 3em;"><p>Pandas</p></div>
+                            <div class="tech-item"><img class="py-3 mb-1 mx-3" src="{% static 'work/images/matplot.png' %}" style="width: 3em;"><p>matplotlib</p></div>
+                        </div>
+                    </div>
+                    <div class="tech-cat py-2 text-center">
+                        <h4 class="btn btn-dark" data-aos="flip-up">TOOLS</h4>
+                        <div class="tech-box row py-2 px-2 m-2" data-aos="zoom-in">
+                            <div class="tech-item"><i class="devicon-chrome-plain colored fa-3x px-3"></i><p>Chrome</p></div>
+                            <div class="tech-item"><i class="devicon-pycharm-plain colored fa-3x px-3"></i><p>PyCharm</p></div>
+                            <div class="tech-item"><i class="devicon-amazonwebservices-original colored fa-3x px-3"></i><p>AWS EC2</p></div>
+                            <div class="tech-item"><i class="devicon-git-plain colored fa-3x px-3"></i><p>Git</p></div>
+                            <div class="tech-item"><i class="devicon-nginx-original colored fa-3x px-3"></i><p>Nginx</p></div>
+                            <div class="tech-item"><i class="devicon-ubuntu-plain colored fa-3x px-3"></i><p>Ubuntu</p></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+<div class="MainContainer">
+
+  <div class="ParallaxContainer">
+
+  </div>
+
+  <div class="ContentContainer">
+    <div class="Content">
+
+    </div>
+  </div>
+</div>
+<section class="bg-light" id="connect">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 pt-5">
+                <h3 class="text-center pb-2">Connect with me</h3>
+                <div class="mb-5 text-center">
+                    <a style="color: gray; text-decoration: none;" href="mailto:wtran4hire@gmail.com">
+                        <i class="fas fa-envelope fa-lg white-text mr-md-5 mr-3 fa-5x"></i>
+                    </a>
+                    <a style="color: navy; text-decoration: none;" href="https://www.linkedin.com/in/william-tran">
+                        <i class="fab fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-5x"></i>
+                    </a>
+                    <a style="color: black; text-decoration: none;" href="https://github.com/wtran29">
+                        <i class="fab fa-github-alt fa-lg white-text mr-md-5 mr-3 fa-5x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="page-footer font-small text-muted py-1">
+    <div class="container pt-2">
+        <!--<div class="float-right">-->
+            <!--<a href="#">Back to top</a>-->
+        <!--</div>-->
+        <p>William Tran &copy; {% now "Y" %} Copyright</p>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+<script type="text/javascript">
+<!--var myObject = {};-->
+<!--var mySecondReference = myObject;-->
+
+<!--for (s in window)-->
+  <!--if (!/webkitStorageInfo|webkitIndexedDB/.test(s) && window[s]===myObject)-->
+    <!--alert("reference found: " + s);-->
+
+$(document).ready(function() {
+    $('#mover').draggable();
+    $('[data-toggle="popover"]').popover();
+});
+
+
+/* For animated scroll spy */
+$(document).ready(function(){
+  // Add scrollspy to <body>
+  $('body').scrollspy({target: ".navbar", offset: 50});
+
+  // Add smooth scrolling on all links inside the navbar
+  $("#navbarSupportedContent a").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 1000, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    }  // End if
+  });
+});
+
+
+$(function() {
+    $(window).scroll(function() {
+        $('.animation-test').each(function() {
+            var imagePos = $(this).offset().top;
+            var imageHeight = $(this).height();
+            var topOfWindow = $(window).scrollTop();
+
+            if (imagePos < topOfWindow + imageHeight && imagePos + imageHeight > topOfWindow) {
+                $(this).addClass("slideRight");
+            } else {
+                $(this).removeClass("slideRight");
+            }
+        });
+    });
+});
+
+/* For animated scroll top */
+<!--$(function(){-->
+
+    <!--$(document).on( 'scroll', function(){-->
+
+        <!--if ($(window).scrollTop() > 100) {-->
+            <!--$('.scroll-top-wrapper').addClass('show');-->
+        <!--} else {-->
+            <!--$('.scroll-top-wrapper').removeClass('show');-->
+        <!--}-->
+    <!--});-->
+<!--});-->
+
+$(function(){
+
+$(document).on( 'scroll', function(){
+
+if ($(window).scrollTop() > 200) {
+$('.scroll-top-wrapper').addClass('show');
+} else {
+$('.scroll-top-wrapper').removeClass('show');
+}
+});
+
+$('.scroll-top-wrapper').on('click', scrollToTop);
+});
+
+function scrollToTop() {
+verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+element = $('body');
+offset = element.offset();
+offsetTop = offset.top;
+$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+
+    AOS.init();
+
+
+</script>
+
+</body>
+</html>

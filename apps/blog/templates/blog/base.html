@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}#1 Source for REAL FAKE NEWS{% endblock title %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}" media="screen" title="no title" charset="utf-8">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!-- Django-Pagedown -->
+    <style>
+        {% block style %}{% endblock style%}
+    </style>
+    {% block head_extra %}{% endblock head_extra %}
+
+</head>
+<body>
+<header>
+    <div class="scroll-top-wrapper">
+        <span class="scroll-top-inner">
+            <i class="fa fa-2x fa-chevron-up"></i>
+        </span>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/">William Tran</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto text-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://github.com/wtran29">GitHub</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% static 'work/images/resume2018v2.pdf' %}">Resume</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/blog">#RealFakeNews</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mailto:wtran4hire@gmail.com">Contact</a>
+                </li>
+            </ul>
+            <!--<form class="form-inline my-2 my-lg-0">-->
+            <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+            <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+            <!--</form>-->
+        </div>
+    </nav>
+</header>
+<section class="jumbotron jumbotron-fluid text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading display-4 font-weight-bold">#REAL FAKE NEWS</h1>
+        <p class="header-text">{{ header_text|random }}</p>
+    </div>
+</section>
+<div id="fb-root"></div>
+<!--https://developers.facebook.com/docs/plugins/like-button-->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+{% include "blog/messages.html" %}
+<div class="container">
+    {% if request.user.is_authenticated %}<p class="lead text-right">Signed in as {{ request.user }}</p>{% endif %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'blogs:all' %}">Blogs</a></li>
+        {% block blog_detail_link %}
+        {% endblock %}
+        {% if not request.user.is_authenticated %}
+        <li class="breadcrumb-item ml-auto"><a href="{% url 'register' %}">Register</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'login' %}">Login</a></li>
+        {% else %}
+        <li class="breadcrumb-item ml-auto"><a href="{% url 'blogs:create' %}">Create</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'logout' %}">Logout</a></li>
+        {% endif %}
+    </ol>
+</div>
+<div class="blog-content container">
+    {% block content %}
+    {% endblock content %}
+</div>
+<div class="text-center">
+    <a href="https://partners.uber.com/i/ppyekzxug"><img class="img-fluid rounded" src="{% static 'blog/images/uber-invite.jpg' %}" width="800"></a>
+</div>
+<section id="connect">
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col-md-12 pt-5">
+                <h3 class="text-center pb-3">Connect with me</h3>
+                <div class="mb-5 text-center">
+                    <a style="color: gray; text-decoration: none;" href="mailto:wtran4hire@gmail.com">
+                        <i class="fas fa-envelope fa-lg white-text mr-md-5 mr-3 fa-5x"></i>
+                    </a>
+                    <a style="color: navy; text-decoration: none;" href="https://www.linkedin.com/in/william-tran">
+                        <i class="fab fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-5x"></i>
+                    </a>
+                    <a style="color: black; text-decoration: none;" href="https://github.com/wtran29">
+                        <i class="fab fa-github-alt fa-lg white-text mr-md-5 mr-3 fa-5x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="page-footer font-small text-muted pt-2">
+    <div class="container py-1">
+        <!--<p class="float-right">-->
+        <!--<a href="#">Back to top</a>-->
+        <!--</p>-->
+        <p>William Tran &copy; {% now "Y" %} Copyright</p>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.6.0/marked.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+<script type="text/javascript">
+<!--Markdown function-->
+<!--Show markdowns correctly-->
+<!--Show markdown images correctly-->
+$(document).ready(function(){
+    $(".content-markdown").each(function(){
+        var content = $(this).text()
+        var markedContent = marked(content)
+        $(this).html(markedContent)
+    })
+
+    $(".blog-detail-item img").each(function(){
+        $(this).addClass("img-responsive").attr('width', '100%')
+    })
+
+
+    var contentInput = $("#id_body");
+
+    function setContent(value){
+        console.log(value)
+        var markedContent = marked(value)
+        $("#preview-content").html(markedContent)
+        $("#preview-content img").each(function(){
+            $(this).addClass("img-responsive").attr('width', '100%')
+        })
+    }
+    setContent(contentInput.val())
+
+    contentInput.keyup(function(){
+        var newContent = $(this).val()
+        setContent(newContent)
+    })
+
+    var titleInput = $("#id_title");
+
+    function setTitle(value){
+        if (value) {
+            $("#preview-title").text(value);
+        }
+    }
+    setTitle(titleInput.val())
+
+    titleInput.keyup(function(){
+        var newContent = $(this).val()
+        setTitle(newContent)
+    })
+
+    function readURL(input) {
+
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('#preview-image').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#id_image").change(function() {
+      readURL(this);
+    });
+
+    var videoInput = $("#id_video");
+
+    function setVideo(value){
+        if(value){
+            $("#preview-video").attr('src', value);
+        }
+    }
+    setVideo(videoInput.val())
+
+    videoInput.keyup(function(){
+        var newContent = $(this).val()
+        setVideo(newContent)
+    })
+
+    // preview-title
+    // preview-content
+})
+
+$(document).ready(function(){
+    $(".comment-show-btn").click(function(event){
+        event.preventDefault();
+        $(this).parent().parent().parent().next(".comment-reply").fadeToggle();
+    })
+
+    $(".comment-reply-btn").click(function(event){
+        event.preventDefault();
+        $(this).parent().parent().parent().next(".comment-reply").fadeToggle();
+    })
+})
+
+
+<!--Scroll top function-->
+$(function(){
+
+    $(document).on( 'scroll', function(){
+
+        if ($(window).scrollTop() > 100) {
+            $('.scroll-top-wrapper').addClass('show');
+        } else {
+            $('.scroll-top-wrapper').removeClass('show');
+        }
+    });
+});
+
+$(function(){
+
+$(document).on( 'scroll', function(){
+
+if ($(window).scrollTop() > 100) {
+$('.scroll-top-wrapper').addClass('show');
+} else {
+$('.scroll-top-wrapper').removeClass('show');
+}
+});
+
+$('.scroll-top-wrapper').on('click', scrollToTop);
+});
+
+function scrollToTop() {
+verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+element = $('body');
+offset = element.offset();
+offsetTop = offset.top;
+$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+
+$(function () {
+  $('[data-toggle="popover"]').popover({
+    trigger: 'focus'
+  })
+})
+</script>
+</body>
+</html>

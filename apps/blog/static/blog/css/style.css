@@ -1,0 +1,217 @@
+@font-face {
+    font-family: 'Freight Text Light';
+    src: url('../font/Freight Text Light.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../font/Source Sans Pro Semibold.ttf');
+}
+@font-face {
+    font-family: 'Source Sans ExtraLight';
+    src: url('../font/Source Sans Pro ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'Good Vibrations';
+    src: url('../font/GoodVibrationsROB_Script.ttf');
+}
+
+.jumbotron {
+    background-image: url('../../blog/images/news.jpg');
+    background-size: cover;
+}
+
+.jumbotron-heading {
+    /* font-family: 'Good Vibrations', sans-serif; */
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+.navbar, .page-footer {
+    background: black
+}
+
+.header-text {
+    text-shadow: 2px 2px 5px black,
+                 2px 2px 5px black;
+    font-size: 20px;
+    color: gainsboro;
+}
+
+.wmd-panel {
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+    width: unset!important;
+    min-width: 0!important;
+}
+
+.blockquote {
+    padding: .5rem 1rem;
+    border-left: .25rem solid #eceeef;
+}
+
+.comment-reply {
+    display: none;
+}
+
+.blog-title-main {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.4em;
+    letter-spacing: -0.2rem;
+    color: black;
+}
+
+.blog-title-main:hover {
+    color: #007bff;
+    text-decoration-line: none;
+}
+
+.blog-date-main {
+    font-family: 'Source Sans ExtraLight', sans-serif;
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.blog-summary {
+    font-family: 'Freight Text Light', sans-serif;
+    font-size: 1.1em;
+}
+
+.blog-title {
+    font-family: 'Source Sans Pro', sans-serif;
+
+    letter-spacing: -0.2rem;
+}
+
+.blog-author {
+    font-family: 'Source Sans ExtraLight', sans-serif;
+    font-size: 1em;
+}
+
+.blog-date {
+    font-family: 'Source Sans ExtraLight', sans-serif;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.blog-body p{
+    font-family: 'Freight Text Light', sans-serif;
+    font-size: 1.2em;
+}
+
+.btn-sm {
+    border-radius: 3px;
+    font-size: 11px!important;
+    height: 20px;
+    padding: 0 0 0 2px;
+    margin: 0;
+    font: 400 13.3333px Arial;
+    font-family: Helvetica, Arial, sans-serif;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    font-weight: bold!important;
+    color: white;
+    line-height: initial!important;
+}
+
+.twitter {
+    background: #1DA1F2;
+    border: 1px solid #1DA1F2!important;
+}
+
+.google {
+    background: #dd4b39;
+    border: 1px solid #dd4b39!important;
+}
+
+.linkedin {
+    background: #0077B5;
+    border: 1px solid #0077B5!important;
+}
+
+.reddit {
+    background: #ff4500;
+    border: 1px solid #ff4500!important;
+}
+
+.twitter:hover, .google:hover, .linkedin:hover, .reddit:hover {
+    color: white;
+    opacity: 0.9;
+}
+
+.scroll-top-wrapper {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    text-align: center;
+    z-index: 99999999;
+    background-color: #343a40;
+    color: #eeeeee;
+    width: 50px;
+    height: 48px;
+    line-height: 48px;
+    right: 30px;
+    bottom: 30px;
+    padding-top: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.scroll-top-wrapper:hover {
+    background-color: #6c757d;
+    color: white;
+}
+.scroll-top-wrapper.show {
+    visibility:visible;
+    cursor:pointer;
+    opacity: 1.0;
+}
+.scroll-top-wrapper i.fa {
+    line-height: inherit;
+}
+
+@media (max-width: 375px) {
+    .jumbotron-heading {
+        font-size: 2rem!important;
+    }
+    .breadcrumb-item a {
+        font-size: 0.75rem!important;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 425px) {
+    .jumbotron-heading {
+        font-size: 2.5rem!important;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+    .jumbotron-heading {
+        font-size: 3rem!important;
+    }
+}
+
+@media (min-width: 769px) {
+    .blog-detail-title {
+        margin-left: 3rem!important;
+        margin-right: 3rem!important;
+    }
+    .blog-detail-item {
+        margin-left: 1rem!important;
+        margin-right: 1rem!important;
+    }
+    .blog-content {
+        padding-left: 4rem!important;
+        padding-right: 4rem!important;
+    }
+}

@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<nav class="navbar navbar-trans navbar-expand-lg navbar-dark navbar-inverse">
+    <a class="navbar-brand" href="/">William Tran</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tech">Technologies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/blog">#RealFakeNews</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="mailto:wtran4hire@gmail.com">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#connect">Connect</a>
+            </li>
+        </ul>
+        <!--<form class="form-inline my-2 my-lg-0">-->
+        <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+        <!--</form>-->
+    </div>
+</nav>
+<div class="pt-5 px-3 flex-container">
+    <div id="joystick" class="d-inline-block profile">
+        <div id="mover" data-toggle="popover" data-content="Hello, welcome to my site.">
+            <img class="pic" src="{% static 'work/images/profile.jpg' %}" height="200">
+        </div>
+    </div>
+    <div class="text-center mb-5">
+        <h2 class="header-slideLeft">William Tran</h2>
+        <p class="lead" data-aos="fade-left" data-aos-duration="3000">DEDICATED, FOCUSED, and DRIVEN</p>
+        <p class="header-summary" data-aos="fade-left" data-aos-duration="2000">
+            Here to solve problems and turn ideas into reality. Let's get ready to Django!
+        </p>
+        <p class="pb-5" data-aos="flip-up">
+            <a href="mailto:wtran4hire@gmail.com" class="btn btn-danger my-1">EMAIL ME</a>
+        </p>
+    </div>
+</div>

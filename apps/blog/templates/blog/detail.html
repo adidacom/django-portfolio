@@ -1,0 +1,118 @@
+{% extends "blog/base.html" %}
+{% load urlify %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+{% block title %}
+{{blog.title}} | {{ block.super }}
+{% endblock title %}
+
+{% block blog_detail_link %}
+<li class="breadcrumb-item"><a href="{{ blog.get_absolute_url }}">{{ blog.title|truncatechars:15 }}</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="container border shadow py-5 px-3 col-12 my-5">
+
+    <div class="text-center">
+        <h1 class="blog-title blog-detail-title px-3">{{blog.title}}</h1>
+        {% if blog.user.get_full_name %}
+        <p class="mb-0"><span class="font-italic mb-0 pr-1">Written by: </span>{{blog.user.get_full_name}}</p>
+        {% else %}
+        <p class="mb-0"><span class="font-italic mb-0 pr-1">Written by: </span>{{blog.user}}</p>
+        {% endif %}
+        <p class="mb-0"><span class="font-italic mb-0 pr-1">Published on: </span>{% if blog.draft %}<span style='color:red;'>Draft </span>{% endif %}{{blog.pub_date}}</p>
+        <p class="font-italic">Read time: {% if blog.read_time|time:"i" <= "01" %}<1 minute
+            {% else %}{{ blog.read_time|time:"i"|intcomma }} minutes {% endif %}</p>
+
+        <div class="d-block">
+            <!--https://developers.facebook.com/docs/plugins/like-button-->
+            <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+            <a class="btn btn-sm twitter" href="https://twitter.com/home?status={{ blog.body|truncatechars:50|urlify }}%20{{ request.build_absolute_uri }}"><i class="fab fa-twitter"></i>
+                Twitter
+            </a>
+
+            <a class="btn btn-sm google" href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'>Google+</a>
+
+            <a class="btn btn-sm linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{blog.title}}&summary={{ blog.body|truncatechars:50|urlify }}&source=http:{{ request.build_absolute_uri }}">
+                Linkedin
+            </a>
+
+            <a class="btn btn-sm reddit" href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_quote }}">Reddit</a>
+        </div>
+
+    </div>
+    <hr>
+
+    <div class="container pt-2">
+
+        <div class="text-center">
+            {% if blog.image %}
+            <img class="img-fluid img-responsive" src="{{ blog.image.url }}" height="450" width="450">
+            {% endif %}
+            {% if blog.video %}
+            <iframe class="pt-4" width="100%" height="400" src="{{ blog.video }}" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            {% endif %}
+        </div>
+        <div class="blog-body text-lg-left text-justify blog-detail-item py-5 px-2"><p>{{blog.get_html}}</p></div>
+
+    </div>
+    <hr>
+
+    <div>
+        <p class="pl-3 lead">Comments</p>
+        {% if request.user.is_authenticated %}
+        <form class="col-sm-6 mb-4" method="POST" action="">
+            {% csrf_token %}
+            {{ comment_form|crispy }}
+            <button type="submit" class="btn btn-primary"><i class="fas fa-comment"></i> Comment</button>
+        </form>
+        {% else %}
+        <p class="pl-3">You must login to comment</p>
+        {% endif %}
+        {% for comment in comments %}
+        <hr>
+        <blockquote class="blockquote pl-5 mx-3">
+            <p class="mb-0 py-2">{{ comment.content }}</p>
+            <small><footer class="blockquote-footer font-italic pb-2">via {{ comment.user }} | {{ comment.updated_at|timesince }} ago |
+                <span><a class="comment-show-btn" href="#">{% if comment.children.count > 0 %}{{ comment.children.count }} Comment{% if comment.children.count > 1 %}s{% endif %}</a></span> |
+                {% endif %}<span><a class="comment-reply-btn" href="#">Reply</a></span> | <a class="" href="{{ comment.get_absolute_url }}" >Thread</a></footer></small>
+
+
+            <div class="comment-reply">
+                {% for child_comment in comment.children %}
+                <hr>
+                <blockquote class="blockquote pl-3 m-1 py-1">
+                    <p class="mb-0 py-2">{{ child_comment.content }}</p>
+
+                    <small><footer class="blockquote-footer font-italic">via {{ child_comment.user }} | {{ child_comment.updated_at|timesince }} ago</footer></small>
+                </blockquote>
+
+                {% endfor %}
+                {% if request.user.is_authenticated %}
+                <form class="col-sm-6 pt-2" method="POST" action="">
+                    {% csrf_token %}
+                    {{ comment_form|crispy }}
+                    <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-comment"></i> Comment</button>
+                </form>
+                {% else %}
+                <p class="py-2">You must login to comment</p>
+                {% endif %}
+            </div>
+
+        </blockquote>
+
+        {% endfor %}
+    </div>
+
+</div>
+<!--https://developers.facebook.com/docs/plugins/comments-->
+<!--<div class="fb-comments container text-center" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>-->
+
+<hr>
+
+
+{% endblock content %}
+
