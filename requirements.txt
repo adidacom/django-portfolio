@@ -24,7 +24,7 @@ django-filter==2.0.0
 markdown==3.0.1
 djangorestframework==3.9.1
 djangorestframework-jwt==1.11.0
-markdown2==2.3.7
+markdown2==2.4.0
 
 contextlib2==0.5.5
 cryptography==2.4.2
