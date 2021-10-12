@@ -93,7 +93,7 @@ numpy==1.14.3
 numpydoc==0.8.0
 
 
-opencv-python==3.4.1.15
+opencv-python==3.4.7.28
 openpyxl==2.5.3
 packaging==17.1
 pandas==0.23.0
